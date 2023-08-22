@@ -1,21 +1,22 @@
 from selenium import webdriver
+from selenium.webdriver.common.by import By
 import time
 import os
 
 # start webdriver and load website from disk
-driver = webdriver.Firefox()
-url = 'file:///' + os.getcwd() + '/websites/table.html'
+driver = webdriver.Chrome()
+url = 'file:///' + os.getcwd() + '/examples/websites/table.html'
 driver.get(url)
 time.sleep(1)
 
 # select table 
-table = driver.find_element_by_id('table')
+table = driver.find_element(By.ID, 'table')
 
 # iterate through table
-rows = table.find_elements_by_tag_name("tr")
+rows = table.find_elements(By.TAG_NAME, "tr")
 
 # get header rows
-headers = rows[0].find_elements_by_tag_name("th")
+headers = rows[0].find_elements(By.TAG_NAME, "th")
 for header in headers:
     print(header.text)
 
@@ -25,13 +26,13 @@ countries = []
 
 # get row
 for row in rows:
-    if len(row.find_elements_by_tag_name("td")) > 0:
-        fruits.append( row.find_elements_by_tag_name("td")[0].text )
-        countries.append( row.find_elements_by_tag_name("td")[1].text )
+    if len(row.find_elements(By.TAG_NAME, "td")) > 0:
+        fruits.append( row.find_elements(By.TAG_NAME, "td")[0].text )
+        countries.append( row.find_elements(By.TAG_NAME, "td")[1].text )
 
 print(fruits)
 print(countries)
 
-time.sleep(1)
+time.sleep(2)
 driver.quit()
 

@@ -10,6 +10,12 @@ Ubuntu/Linux
 
 `??`
 
-**asd**
+**Install pip requirements**
+`pip install -r requirements.txt`
+
+**Download and install chromedriver**
+https://chromedriver.chromium.org/downloads
+
+
 
 https://www.udemy.com/course/browser-automation-with-python-selenium/learn/lecture/13652792#overview

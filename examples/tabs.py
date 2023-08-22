@@ -1,12 +1,13 @@
 from selenium import webdriver
 import time
 import os
+from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
 
 # start webdriver and load website from disk
-driver = webdriver.Firefox()
-url = 'file:///' + os.getcwd() + '/websites/button.html'
+driver = webdriver.Chrome()
+url = 'file:///' + os.getcwd() + '/examples/websites/button.html'
 driver.get(url)
 time.sleep(1)
 
